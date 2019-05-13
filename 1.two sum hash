@@ -41,7 +41,7 @@ void freeHashTable(struct node** hashTable, int n) {
     }
     free(hashTable);
 }
-int* twoSum(int* nums, int numsSize, int target, int* returnSize) {
+int* twoSum(int* nums, int numsSize, int target) {
     int i = 0, j = 0;
     int n = numsSize, index = 0;
     int* result = NULL;
@@ -54,7 +54,7 @@ int* twoSum(int* nums, int numsSize, int target, int* returnSize) {
         //对于某一个元素nums[i]，如果hash表中没出现过target - nums[i]
         if(-1 == index)
             insert(hashTable, nums[i], i, n);
-        else {
+        else {//出现说明已经找到了
             result = (int*)malloc(sizeof(int) * 2);
             result[0] = index;
             result[1] = i;
